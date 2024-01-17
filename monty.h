@@ -51,4 +51,5 @@ void pint_opcode(stack_t **stack, unsigned int line_number);
 void pop_opcode(stack_t **stack, unsigned int line_number);
 /*opcode functions in opcode_1.c*/
 void nop_opcode(stack_t **stack, unsigned int line_number);
+void add_opcode(stack_t **stack, unsigned int line_number);
 #endif /*MONTY_H*/
