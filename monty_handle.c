@@ -36,7 +36,7 @@ void check_open_file(char *argv[])
 	{
 		num_line++;
 		chank = strtok(line, " \t\n");
-		if (chank != NULL)
+		if (chank != NULL && chank[0] != '#')
 		{
 			check_on_chank(chank, num_line);
 		}
