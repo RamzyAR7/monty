@@ -54,6 +54,7 @@ void nop_opcode(stack_t **stack, unsigned int line_number);
 void add_opcode(stack_t **stack, unsigned int line_number);
 void sub_opcode(stack_t **stack, unsigned int line_number);
 void swap_opcode(stack_t **stack, unsigned int line_number);
-/*opcode functions in opcode_1.c*/
+/*opcode functions in opcode_2.c*/
 void div_opcode(stack_t **stack, unsigned int line_number);
+void mul_opcode(stack_t **stack, unsigned int line_number);
 #endif /*MONTY_H*/

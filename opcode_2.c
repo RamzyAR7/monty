@@ -33,3 +33,30 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * mul_opcode - multiplies the second top of
+ *  the stack with the top of the stack
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+*/
+void mul_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		((*stack)->next)->n = (*stack)->n * ((*stack)->next)->n;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		if (!(*stack))
+		{
+			free_stack(*stack);
+		}
+		exit(EXIT_FAILURE);
+	}
+}

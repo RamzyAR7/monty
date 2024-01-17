@@ -59,10 +59,10 @@ void check_on_chank(char *chank, int num_line)
 		{"pop", pop_opcode},
 		{"swap", swap_opcode},
 		{"add", add_opcode},
-		{"sub", sub_opcode},
 		{"nop", nop_opcode},
+		{"sub", sub_opcode},
 		{"div", div_opcode},
-		{"swap", swap_opcode},
+		{"mul", mul_opcode},
 		{NULL, NULL}};
 
 	for (i = 0; arr[i].opcode; i++)
