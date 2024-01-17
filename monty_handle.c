@@ -58,6 +58,7 @@ void check_on_chank(char *chank, int num_line)
 		{"pint", pint_opcode},
 		{"pop", pop_opcode}, {"sub", sub_opcode},
 		{"nop", nop_opcode}, {"add", add_opcode},
+		{"swap", swap_opcode},
 		{NULL, NULL}};
 
 	for (i = 0; arr[i].opcode; i++)
