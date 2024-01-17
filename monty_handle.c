@@ -29,7 +29,6 @@ void check_open_file(char *argv[])
 	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	while (fgets(line, sizeof(line), fp) != NULL)
