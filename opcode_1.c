@@ -52,17 +52,17 @@ void free_stack(stack_t *stack)
 	}
 }
 /**
- * add_opcode - adds the top two elements of the stack
+ * sub_opcode - subtracts the top of the stack from the second top of the stack
  * @stack: stack
  * @line_number: line number
 */
-void add_opcode(stack_t **stack, unsigned int line_number)
+void sub_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 
 	if (*stack && (*stack)->next)
 	{
-		((*stack)->next)->n = (*stack)->n + ((*stack)->next)->n;
+		((*stack)->next)->n = ((*stack)->next)->n - (*stack)->n;
 		*stack = (*stack)->next;
 		free(temp);
 	}
