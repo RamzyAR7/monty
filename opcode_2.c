@@ -21,6 +21,7 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 		}
 		((*stack)->next)->n = ((*stack)->next)->n / (*stack)->n;
 		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(temp);
 	}
 	else
@@ -48,6 +49,7 @@ void mul_opcode(stack_t **stack, unsigned int line_number)
 	{
 		((*stack)->next)->n = (*stack)->n * ((*stack)->next)->n;
 		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(temp);
 	}
 	else
@@ -82,6 +84,7 @@ void mod_opcode(stack_t **stack, unsigned int line_number)
 		}
 		((*stack)->next)->n = ((*stack)->next)->n % (*stack)->n;
 		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(temp);
 	}
 	else

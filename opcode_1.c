@@ -12,6 +12,7 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 	{
 		((*stack)->next)->n = (*stack)->n + ((*stack)->next)->n;
 		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(temp);
 	}
 	else
@@ -64,6 +65,7 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
 	{
 		((*stack)->next)->n = ((*stack)->next)->n - (*stack)->n;
 		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(temp);
 	}
 	else
