@@ -39,7 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /*in monty_handle.c*/
-void check_the_arg(int args, char *argv[]);
+void check_the_arg(int args);
 void check_open_file(char *argv[]);
 void check_on_chank(char *chank, int num_line);
 /*opcode functions in opcode_0.c*/

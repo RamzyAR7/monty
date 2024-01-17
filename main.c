@@ -1,14 +1,14 @@
 #include "monty.h"
+stack_t *head = NULL;
 /**
- * check_the_arg - check the argument
+ * main - interpreter for monty codes
  * @args: number of arguments
  * @argv: array of arguments
  * Return: void
 */
-stack_t *head = NULL;
 int main(int args, char *argv[])
 {
-	check_the_arg(args, argv);
+	check_the_arg(args);
 	check_open_file(argv);
 	return (0);
 }

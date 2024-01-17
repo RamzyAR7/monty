@@ -2,10 +2,9 @@
 /**
  * check_the_arg - check the argument
  * @args: number of arguments
- * @argv: array of arguments
  * Return: void
 */
-void check_the_arg(int args, char *argv[])
+void check_the_arg(int args)
 {
 	if (args != 2)
 	{
