@@ -68,15 +68,6 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 		free(temp);
 	}
-	else
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
-		if (*stack)
-		{
-			free_stack(*stack);
-		}
-		exit(EXIT_FAILURE);
-	}
 }
 /**
  * swap_opcode - swaps the top two elements of the stack
