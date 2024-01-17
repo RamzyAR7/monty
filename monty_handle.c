@@ -9,6 +9,7 @@ void check_the_arg(int args)
 	if (args != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -28,6 +29,7 @@ void check_open_file(char *argv[])
 	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	while (fgets(line, sizeof(line), fp) != NULL)
@@ -69,6 +71,7 @@ void check_on_chank(char *chank, int num_line)
 	if (idx == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", num_line, chank);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 }

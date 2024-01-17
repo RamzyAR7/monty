@@ -4,7 +4,7 @@
  * @stack: stack
  * @line_number: line number
  * Return: void
-*/
+ */
 void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	char *input;
@@ -13,14 +13,16 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 
 	if (sec == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	len = strlen(sec);
 	input = malloc(sizeof(len));
 	if (input == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; sec[i]; i++)
@@ -36,6 +38,7 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -49,7 +52,7 @@ void push_opcode(stack_t **stack, unsigned int line_number)
  * @head: head
  * @n: number
  * Return: void
-*/
+ */
 void add_stack(stack_t **head, const int n)
 {
 	stack_t *new;
@@ -58,6 +61,7 @@ void add_stack(stack_t **head, const int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 
@@ -81,7 +85,7 @@ void add_stack(stack_t **head, const int n)
  * @stack: stack
  * @line_number: line number
  * Return: void
-*/
+ */
 void pall_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
@@ -98,12 +102,13 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
  * @stack: stack
  * @line_number: line number
  * Return: void
-*/
+ */
 void pint_opcode(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -114,7 +119,7 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
  * @stack: stack
  * @line_number: line number
  * Return: void
-*/
+ */
 void pop_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
@@ -122,6 +127,7 @@ void pop_opcode(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	*stack = (*stack)->next;
