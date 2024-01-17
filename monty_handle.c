@@ -71,7 +71,10 @@ void check_on_chank(char *chank, int num_line)
 	if (idx == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", num_line, chank);
-		free_stack(head);
+		if (head != NULL)
+		{
+			free_stack(head);
+		}
 		exit(EXIT_FAILURE);
 	}
 }
