@@ -17,7 +17,7 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		if (!(*stack))
+		if (*stack)
 		{
 			free_stack(*stack);
 		}
@@ -69,7 +69,7 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
-		if (!(*stack))
+		if (*stack)
 		{
 			free_stack(*stack);
 		}
