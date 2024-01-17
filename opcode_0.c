@@ -112,7 +112,7 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	fprintf(stdout, "%d\n", (*stack)->n);
 }
 /**
  * pop_opcode - opcode pop
