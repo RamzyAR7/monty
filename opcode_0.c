@@ -13,14 +13,14 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 
 	if (sec == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	len = strlen(sec);
 	input = malloc(sizeof(len));
 	if (input == NULL)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; sec[i]; i++)
@@ -35,7 +35,7 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -57,7 +57,7 @@ void add_stack(stack_t **head, const int n)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -103,7 +103,7 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		printf("L%d: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -121,7 +121,7 @@ void pop_opcode(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		printf("L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
 	*stack = (*stack)->next;
