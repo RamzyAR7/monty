@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * push_opcode - opcode push
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+*/
 void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	char *input;
@@ -18,18 +23,15 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	/*printf("->>%s\n", sec);*/
 	for (i = 0; sec[i]; i++)
 	{
 		if (sec[i] == '-')
 		{
 			input[i] = sec[i];
-			/*printf("->> sec : %c ,, imput ->> %c\n", sec[i], input[i]);*/
 		}
 		else if (sec[i] >= '0' && sec[i] <= '9')
 		{
 			input[i] = sec[i];
-			/*printf("->> sec : %c ,, imput ->> %c\n", sec[i], input[i]);*/
 		}
 		else
 		{
@@ -37,12 +39,17 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	/*printf("end\n");*/
 	input[i] = '\0';
 	num = atoi(input);
 	free(input);
 	add_stack(stack, num);
 }
+/**
+ * add_stack - add stack
+ * @head: head
+ * @n: number
+ * Return: void
+*/
 void add_stack(stack_t **head, const int n)
 {
 	stack_t *new;
@@ -69,6 +76,12 @@ void add_stack(stack_t **head, const int n)
 		*head = new;
 	}
 }
+/**
+ * pall_opcode - opcode pall
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+*/
 void pall_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
@@ -80,6 +93,12 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
 	}
 	(void)line_number;
 }
+/**
+ * pint_opcode - opcode pint
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+*/
 void pint_opcode(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
@@ -90,6 +109,12 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
+/**
+ * pop_opcode - opcode pop
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+*/
 void pop_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;

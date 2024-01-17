@@ -1,21 +1,23 @@
 #include "monty.h"
-
+/**
+ * check_the_arg - check the argument
+ * @args: number of arguments
+ * @argv: array of arguments
+ * Return: void
+*/
 void check_the_arg(int args, char *argv[])
 {
-	int length_of_argv;
-
 	if (args != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	length_of_argv = strlen(argv[1]);
-	if (argv[1][length_of_argv - 1] != 'm' || argv[1][length_of_argv - 2] != '.')
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
 }
+/**
+ * check_open_file - check open file
+ * @argv: array of arguments
+ * Return: void
+*/
 void check_open_file(char *argv[])
 {
 	char line[bufsize];
@@ -40,6 +42,12 @@ void check_open_file(char *argv[])
 	}
 	fclose(fp);
 }
+/**
+ * check_on_chank - check on chank
+ * @chank: chank
+ * @num_line: number of line
+ * Return: void
+*/
 void check_on_chank(char *chank, int num_line)
 {
 	int i, idx = 0;
@@ -56,9 +64,7 @@ void check_on_chank(char *chank, int num_line)
 		if (strcmp(chank, arr[i].opcode) == 0)
 		{
 			idx = 1;
-			/*printf("-->>> %s\n", arr[i].opcode);*/
 			arr[i].f(&head, (unsigned int)num_line);
-			/*printf("-->>> %d\n", head->n);*/
 		}
 	}
 	if (idx == 0)
