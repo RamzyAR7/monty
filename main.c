@@ -10,6 +10,9 @@ int main(int args, char *argv[])
 {
 	check_the_arg(args);
 	check_open_file(argv);
-	free_stack(head);
+	if (head != NULL)
+	{
+		free_stack(head);
+	}
 	return (0);
 }
