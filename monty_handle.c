@@ -61,6 +61,7 @@ void check_on_chank(char *chank, int num_line)
 		{"add", add_opcode},
 		{"sub", sub_opcode},
 		{"nop", nop_opcode},
+		{"div", div_opcode},
 		{"swap", swap_opcode},
 		{NULL, NULL}};
 
