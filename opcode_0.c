@@ -106,13 +106,15 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
  */
 void pint_opcode(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL)
+	if (*stack)
+	{
+		fprintf(stdout, "%d\n", (*stack)->n);
+	}
+	else
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
-
-	fprintf(stdout, "%d\n", (*stack)->n);
 }
 /**
  * pop_opcode - opcode pop
