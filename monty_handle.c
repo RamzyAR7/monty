@@ -63,6 +63,7 @@ void check_on_chank(char *chank, int num_line)
 		{"sub", sub_opcode},
 		{"div", div_opcode},
 		{"mul", mul_opcode},
+		{"mod", mod_opcode},
 		{NULL, NULL}};
 
 	for (i = 0; arr[i].opcode; i++)

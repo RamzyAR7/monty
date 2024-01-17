@@ -60,3 +60,37 @@ void mul_opcode(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * mod_opcode - computes rest of division
+ * @stack: stack
+ * @line_number: line number
+*/
+void mod_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		if ((*stack)->n == 0)
+		{
+			fprintf(stderr, "L%d: division by zero", line_number);
+			if (!(*stack))
+			{
+				free_stack(*stack);
+			}
+			exit(EXIT_FAILURE);
+		}
+		((*stack)->next)->n = ((*stack)->next)->n % (*stack)->n;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short", line_number);
+		if (!(*stack))
+		{
+			free_stack(*stack);
+		}
+		exit(EXIT_FAILURE);
+	}
+}
