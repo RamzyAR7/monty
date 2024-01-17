@@ -51,3 +51,28 @@ void free_stack(stack_t *stack)
 		free(tmp);
 	}
 }
+/**
+ * add_opcode - adds the top two elements of the stack
+ * @stack: stack
+ * @line_number: line number
+*/
+void add_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		((*stack)->next)->n = (*stack)->n + ((*stack)->next)->n;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		if (!(*stack))
+		{
+			free_stack(*stack);
+		}
+		exit(EXIT_FAILURE);
+	}
+}

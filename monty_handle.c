@@ -56,7 +56,7 @@ void check_on_chank(char *chank, int num_line)
 		{"push", push_opcode},
 		{"pall", pall_opcode},
 		{"pint", pint_opcode},
-		{"pop", pop_opcode},
+		{"pop", pop_opcode}, {"sub", sub_opcode},
 		{"nop", nop_opcode}, {"add", add_opcode},
 		{NULL, NULL}};
 
