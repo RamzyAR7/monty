@@ -108,7 +108,6 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
-		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -127,7 +126,6 @@ void pop_opcode(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
-		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	*stack = (*stack)->next;
