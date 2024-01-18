@@ -62,4 +62,5 @@ void pchar_opcode(stack_t **stack, unsigned int line_number);
 void pstr_opcode(stack_t **stack, unsigned int line_number);
 /*opcode functions in opcode_3.c*/
 void rotr_opcode(stack_t **stack, unsigned int line_number);
+int recursion(stack_t *temp, int top);
 #endif /*MONTY_H*/

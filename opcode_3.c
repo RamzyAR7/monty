@@ -7,32 +7,23 @@
  */
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp = *stack;
+
 	(void)line_number;
+	(*stack)->n = recursion(temp, (*stack)->n);
+}
 
-	if (*stack && (*stack)->next)
+int recursion(stack_t *temp, int top)
+{
+	int replace;
+
+	if (!temp->next)
 	{
-		tmp = *stack;
-
-		while (tmp->next)
-		{
-			tmp = tmp->next;
-		}
-
-		tmp->next = *stack;
-		tmp->prev->next = NULL;
-		tmp->prev = NULL;
-
-		(*stack)->prev = tmp;
-		*stack = tmp;
+		replace = temp->n;
+		temp->n = top;
+		return replace;
 	}
-	else
-	{
-		fprintf(stderr, "L%d: can't rotr an empty stack\n", line_number);
-		if (*stack)
-		{
-			free_stack(*stack);
-		}
-		exit(EXIT_FAILURE);
-	}
+
+	temp = temp->next;
+	return recursion(temp, top);
 }
