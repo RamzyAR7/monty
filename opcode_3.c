@@ -8,28 +8,21 @@
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
+	int number;
 
 	(void)line_number;
-	(*stack)->n = recursion(temp, (*stack)->n);
-}
-
-/**
- * recursion - Recursive function to replace the top element of the stack.
- * @temp: Pointer to the current node in the stack.
- * @top: Value to replace the top element with.
- * Return: The value that was replaced.
- */
-int recursion(stack_t *temp, int top)
-{
-	int replace;
-
-	if (!temp->next)
+	if (*stack && (*stack)->next)
 	{
-		replace = temp->n;
-		temp->n = top;
-		return (replace);
+		while (temp->next)
+		{
+			temp = temp->next;
+		}
+		number = temp->n;
+		while (temp->prev)
+		{
+			temp->n = (temp->prev)->n;
+			temp = temp->prev;
+		}
+		temp->n = number;
 	}
-
-	temp = temp->next;
-	return (recursion(temp, top));
 }
