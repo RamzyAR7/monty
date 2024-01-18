@@ -7,12 +7,14 @@
  */
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *temp;
 	int number;
 
 	(void)line_number;
 	if (*stack && (*stack)->next)
 	{
+		temp = *stack;
+
 		while (temp->next)
 		{
 			temp = temp->next;
