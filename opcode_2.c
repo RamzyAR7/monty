@@ -130,3 +130,22 @@ void pchar_opcode(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * pstr_opcode - prints the string starting at the top of the stack
+ * @stack: stack
+ * @line_number: line number
+*/
+void pstr_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	(void)line_number;
+	while (temp)
+	{
+		if (!temp->n && !(temp->n >= 32 && temp->n <= 127))
+			break;
+		putchar(temp->n);
+		temp = temp->next;
+	}
+	putchar('\n');
+}
