@@ -26,3 +26,22 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
 		temp->n = number;
 	}
 }
+/**
+ * rotl_opcode - rotates the stack to the top
+ * @stack: stack
+ * @line_number: line number
+ * Return: void
+ */
+void rotl_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+	int replace = (*stack)->n;
+
+	(void)line_number;
+	while (temp->next)
+	{
+		temp->n = (temp->next)->n;
+		temp = temp->next;
+	}
+	temp->n = replace;
+}
