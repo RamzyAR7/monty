@@ -37,23 +37,6 @@ void nop_opcode(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 /**
- * free_stack - free stack
- * @stack: stack
- * Return: void
- */
-void free_stack(stack_t *stack)
-{
-	stack_t *tmp = stack;
-
-	while (stack != NULL)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-		tmp = NULL;
-	}
-}
-/**
  * sub_opcode - subtracts the top of the stack from the second top of the stack
  * @stack: stack
  * @line_number: line number

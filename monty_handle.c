@@ -14,6 +14,23 @@ void check_the_arg(int args)
 	}
 }
 /**
+ * free_stack - free stack
+ * @stack: stack
+ * Return: void
+ */
+void free_stack(stack_t *stack)
+{
+	stack_t *tmp = stack;
+
+	while (stack != NULL)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+		tmp = NULL;
+	}
+}
+/**
  * check_open_file - check open file
  * @argv: array of arguments
  * Return: void
