@@ -33,3 +33,8 @@ To run tests, run the following command
 ```bash
   gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 ```
+
+## Developeres
+
+- [@Ahmed Ramzy](https://www.github.com/RamzyAR7)
+- [@Mahmoud Metwalli](https://github.com/MahmoudMetwalli)
